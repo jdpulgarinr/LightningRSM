@@ -26,3 +26,4 @@ C = ((exp(-time./t2))./(1 + B));
 
 % channel-base current
 NucciBaseCurrent = (A.*B.*C) + (I2.*((exp(-time/t3)) - (exp(-time/t4))));
+end
