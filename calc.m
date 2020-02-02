@@ -2,15 +2,21 @@ close all
 clear all
 clc
 
-timeVector = linspace(0,1e-4,5000);
-heightVector = [0 500 3000];
+% Vacuum Constants.
+u0 = 4*pi*1e-7;
+e0 = 8.8541878176*1e-12;
+c = 1/sqrt(u0*e0);
 
-ChannelParameters.speed = 1.5e8;
-ChannelParameters.height = 6e3;
+timeVector = linspace(0,100e-6,5000);
+heightVector = 0;
+
+ChannelParameters.speed = c/2;
+ChannelParameters.height = 7e3;
 ChannelParameters.lambda = 2e3;
 
-modelOption = 3;
-baseCurrentOption = 2;
+
+modelOption = 2;    % TL = 1, MTLL = 2, MTLE = 3
+baseCurrentOption = 1;  % Nucci = 1, Heidler = 2
 
 currentProfile = computeReturnStrokeCurrent(timeVector,heightVector,ChannelParameters,modelOption,baseCurrentOption);
 
